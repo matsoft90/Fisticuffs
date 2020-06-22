@@ -35,6 +35,10 @@ internal struct AnySubscribableBox: Equatable, Hashable {
     var hashValue: Int {
         return ObjectIdentifier(subscribable).hashValue
     }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(subscribable))
+    }
 }
 
 func == (lhs: AnySubscribableBox, rhs: AnySubscribableBox) -> Bool {
